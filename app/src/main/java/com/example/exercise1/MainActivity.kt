@@ -33,9 +33,10 @@ class MainActivity : AppCompatActivity() {
             val td = textDown.text.toString().toInt()
             val y = year.text.toString().toInt()
             val Ir = rate.text.toString().toDouble()/100
+            val monn = String.format("%.2f",((((cp-td)+((cp-td)*Ir*y))/y)/12))
             textLoan.setText((cp-td).toString())
             textIntt.setText(((cp-td)*Ir*y).toString())
-            textMonth.setText(((((cp-td)+((cp-td)*Ir*y))/y)/12).toString())
+            textMonth.setText(monn)
 
         }
         reset.setOnClickListener{
