@@ -32,10 +32,11 @@ class MainActivity : AppCompatActivity() {
             val cp = carPrice.text.toString().toInt()
             val td = textDown.text.toString().toInt()
             val y = year.text.toString().toInt()
-            val Ir = rate.text.toString().toInt()
-            textIntt.setText(((cp-td)*Ir*y).toString())
-            textMonth.setText(((cp-td)/y/12).toString())
+            val Ir = rate.text.toString().toDouble()/100
             textLoan.setText((cp-td).toString())
+            textIntt.setText(((cp-td)*Ir*y).toString())
+            textMonth.setText(((((cp-td)+((cp-td)*Ir*y))/y)/12).toString())
+
         }
         reset.setOnClickListener{
             carPrice.setText("")
